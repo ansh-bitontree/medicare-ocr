@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+paddlepaddle==3.0.0
+paddleocr
+pdf2image
+pillow
+opencv-python-headless
+python-multipart

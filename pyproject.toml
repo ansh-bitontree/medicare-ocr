@@ -1,0 +1,60 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ocr-microservice"
+version = "1.0.0"
+description = "Fallback OCR for scanned PDFs and images. Extracts text and removes PHI before returning JSON."
+requires-python = ">=3.10"
+readme = "README.md"
+authors = [
+    {name = "Your Name", email = "your.email@example.com"}
+]
+license = {text = "MIT"}
+
+dependencies = [
+    "fastapi",
+    "uvicorn[standard]",
+    "paddlepaddle==3.0.0",
+    "paddleocr",
+    "pdf2image",
+    "pillow",
+    "opencv-python-headless",
+    "python-multipart",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-asyncio",
+    "black>=23.0",
+    "ruff>=0.1.0",
+    "mypy>=1.0",
+]
+
+[project.urls]
+repository = "https://github.com/yourusername/ocr-microservice"
+documentation = "https://github.com/yourusername/ocr-microservice#readme"
+
+[tool.setuptools]
+packages = [".", ]
+
+[tool.black]
+line-length = 100
+target-version = ["py310"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+select = ["E", "F", "W", "I"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false

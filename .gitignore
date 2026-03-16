@@ -1,0 +1,6 @@
+ocr-env/
+.venv/
+__pycache__/
+*.pyc
+temp_page_*
+*.json
